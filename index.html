@@ -43,19 +43,41 @@ function reformat(copy){
 	return copy;
 }
 	
+function next_binary_number(binNum) {
+	var showBin = [...binNum];
+	
+	for (var x = binNum.length-1; x >= 0; x--) {
+		if (binNum[x] === 0) {
+		  showBin[x] = 1;
+		  for (var y = binNum.length - 1; y > x; y--) {
+			showBin[y] = 0;
+		  }
+		  return showBin;
+		}
+	}
+	result[0] = 1;
+	
+	return result;
+}
+	
 </script>
 <body>
 	<div class="container">	
 		<h1 class="mt-5">Limesharp test</h1><hr/>
 		<div>
-			<h3>Task 1 - Make this work (repeat 3 times the contents of an array)</h3>
+			<h4>Task 1 - Make this work (repeat 3 times the contents of an array)</h4>
 			<label>Type array</label> <input id="typedArray" name="listarray" onChange="repeat()" /><br/><br/>
 			<span id="showArray" style="opacity: 0;">Result: <span id="showArrayResult"></span></span>
-		</div>
+		</div><hr/>
 		<div>
-			<h3>Task 2 - Make this work (no vowels, lowercase except the first letter)</h3>
+			<h4>Task 2 - Make this work (no vowels, lowercase except the first letter)</h4>
 			<label>Type phrase</label> <input id="typedPhrase" name="phrase" onChange="reformat()" /><br/><br/>
 			<span id="showPhrase" style="opacity: 0;">Result: <span id="showPhraseResult"></span></span>
+		</div><hr/>
+		<div>
+			<h4>Task 3 - Make this work (without using any built in functions, only a for loop, return the next binary number in a string or as an array) - (optional, for bonus points)</h4>
+			<label>Type binary</label> <input id="typedBinary" name="binary" onChange="next_binary_number()" /><br/><br/>
+			<span id="showBinary" style="opacity: 0;">Result: <span id="showBinaryResult"></span></span>
 		</div>
 	</div>
 </body>
