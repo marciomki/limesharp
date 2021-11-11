@@ -25,19 +25,37 @@ function repeat(array){
 	return outputArray;
 }
 	
+function reformat(copy){
+	var phrase = document.getElementById("typedPhrase").value;
+	phrase = phrase.replace(/[aeiou]/gi, '');
+	phrase = phrase.charAt(0).toUpperCase() + phrase.slice(1).toLowerCase();
+	
+	if(phrase !== ''){
+		document.getElementById('showPhrase').style.opacity = 1;
+		document.getElementById('showPhraseResult').innerHTML = phrase;
+	} else {
+		document.getElementById('showPhrase').style.opacity = 0;
+	}
+	
+	//console log
+	copy = copy.replace(/[aeiou]/gi, '');
+	copy = copy.charAt(0).toUpperCase() + copy.slice(1).toLowerCase();
+	return copy;
+}
+	
 </script>
 <body>
-	<div class="container">
-		<h1>Limesharp test</h1><hr/>
+	<div class="container">	
+		<h1 class="mt-5">Limesharp test</h1><hr/>
 		<div>
 			<h3>Task 1 - Make this work (repeat 3 times the contents of an array)</h3>
 			<label>Type array</label> <input id="typedArray" name="listarray" onChange="repeat()" /><br/><br/>
 			<span id="showArray" style="opacity: 0;">Result: <span id="showArrayResult"></span></span>
 		</div>
 		<div>
-			<h3>Task 2</h3>
-			<label>Type array - Make this work (no vowels, lowercase except the first letter)</label> <input id="typedArray" name="listarray" onChange="repeat()" /><br/><br/>
-			<span id="showArray" style="opacity: 0;">Result: <span id="showArrayResult"></span></span>
+			<h3>Task 2 - Make this work (no vowels, lowercase except the first letter)</h3>
+			<label>Type phrase</label> <input id="typedPhrase" name="phrase" onChange="reformat()" /><br/><br/>
+			<span id="showPhrase" style="opacity: 0;">Result: <span id="showPhraseResult"></span></span>
 		</div>
 	</div>
 </body>
