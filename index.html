@@ -55,9 +55,12 @@ function next_binary_number(binNum) {
 		  return showBin;
 		}
 	}
-	result[0] = 1;
+	showBin[0] = 1;
 	
-	return result;
+	for (let i = 1; i <= binNum.length; i++) {
+		showBin[i] = 0;
+	}
+	return showBin;
 }
 	
 </script>
@@ -76,8 +79,7 @@ function next_binary_number(binNum) {
 		</div><hr/>
 		<div>
 			<h4>Task 3 - Make this work (without using any built in functions, only a for loop, return the next binary number in a string or as an array) - (optional, for bonus points)</h4>
-			<label>Type binary</label> <input id="typedBinary" name="binary" onChange="next_binary_number()" /><br/><br/>
-			<span id="showBinary" style="opacity: 0;">Result: <span id="showBinaryResult"></span></span>
+			<span>Please console.log this task (next_binary_number([1,0,0,0,0,0,0,0,0,1]))</span>
 		</div>
 	</div>
 </body>
